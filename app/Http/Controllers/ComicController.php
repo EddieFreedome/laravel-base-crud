@@ -29,7 +29,7 @@ class ComicController extends Controller
     public function create()
     {
         //view: comic-create; genera la vista che contiene il form per la creazione di un nuovo comic.
-        return view("comics.comic-create");
+        return view("comics.create");
     }
 
     /**
@@ -60,6 +60,7 @@ class ComicController extends Controller
     public function show(Comic $comic)
     {
         //generare una vista che contiene i dettagli del nome del fumetto (variabile nell'argomento della funzione)
+        return view('comics.show', compact('comic'));
     }
 
     /**
@@ -71,6 +72,7 @@ class ComicController extends Controller
     public function edit(Comic $comic)
     {
         //generare una vista che contiene il form di creazione del fumetto ma con i campi gia' compilati e resi modificabili (usare variabile comic per richiamare il fumetto)
+
     }
 
     /**

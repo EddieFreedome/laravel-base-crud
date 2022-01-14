@@ -11,7 +11,7 @@
         <h1>Home</h1>
 
         @foreach($comics as $comic)
-            <h2>{{$comic['title']}}</h2>
+            <h3><a href="{{ route('comics.show', $comic['id']) }}">{{ $comic['title'] }}</a></h3>
         @endforeach
         <a href="comics/create">Aggiungi nuovo comic</a>
     </main>
