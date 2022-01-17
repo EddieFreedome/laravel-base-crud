@@ -12,6 +12,16 @@
         <p>{{ $comic['title'] }}</p>
         <p>{{ $comic['description'] }}</p>
         <a href="{{ route('comics.index') }}">Torna alla home</a>
+        <a href="{{ route('comics.edit') }}">Modifica</a>
+        
+        <form 
+            action="{{ route('comic.destroy', ['id' => $comic->id]) }}"
+            method="post">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="Cancella">            
+        </form>
+
     </main>
 </body>
 </html>

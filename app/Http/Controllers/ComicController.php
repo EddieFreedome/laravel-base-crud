@@ -72,7 +72,7 @@ class ComicController extends Controller
     public function edit(Comic $comic)
     {
         //generare una vista che contiene il form di creazione del fumetto ma con i campi gia' compilati e resi modificabili (usare variabile comic per richiamare il fumetto)
-
+        return view('comic.edit', compact('comic'));
     }
 
     /**
@@ -85,8 +85,12 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         //estrarre dalla request i dati immessi dall'utente
+        $data = $request->all();
         //aggiornare il comic esistente specificato nel paramentro
         //salvare le modifiche al comic
+        $comic->update($data);
+        return redirect()->route('comic.show', $comic->id); //perche id?
+
     }
 
     /**
@@ -98,5 +102,6 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
+        return redirect()->route('comic.index');
     }
 }
